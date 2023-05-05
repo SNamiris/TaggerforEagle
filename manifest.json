@@ -1,0 +1,22 @@
+{
+    "id": "86d54100-13a9-41d1-bc02-f791ce11278c",
+    "version": "1.0.0",
+    "platform": "windows",
+    "arch": "x64",
+    "name": "TaggerforEagle",
+    "logo": "/logo.png",
+    "keywords": [],
+    "devTools": false,
+    "main": {
+        "url": "index.html",
+        "width": 640,
+        "height": 480,
+        "alwaysOnTop": false,
+        "frame": true,
+        "fullscreenable": true,
+        "maximizable": true,
+        "minimizable": true,
+        "resizable": true,
+        "multiple": false
+    }
+}

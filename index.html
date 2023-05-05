@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <script type="text/javascript" src="js/plugin.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<div id="message"></div>
+
+    <label for="labels-path">Labels Path:</label>
+    <input type="text" id="labels-path" name="labels-path" size="60"><br>
+
+    <label for="model-path">Model Path:</label>
+    <input type="text" id="model-path" name="model-path" size="60"><br>
+
+    <label for="out-path">Out Path:</label>
+    <input type="text" id="out-path" name="out-path" size="50"><br>
+
+    <label for="general-threshold">General Threshold:</label>
+    <input type="text" id="general-threshold" name="general-threshold"><br>
+
+    <label for="character-threshold">Character Threshold:</label>
+    <input type="text" id="character-threshold" name="character-threshold"><br>
+
+    <button id="saveConfig">保存设置</button>
+    <button id="modify-tags">修改选中文件标签</button>
+    <button id="modify-tags-folder">修改当前文件夹所有文件标签</button>
+
+    <!--<button id="modify-tags-all">修改所有文件标签</button>-->
+
+    <pre id="console-output"></pre>
+</body>
+</html>
