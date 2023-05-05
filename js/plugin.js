@@ -20,6 +20,7 @@ eagle.onPluginCreate(async (plugin) => {
 	document.querySelector("#saveConfig").addEventListener("click", save_Config);
 	document.querySelector("#modify-tags").addEventListener("click", modifyTags);
 	document.querySelector("#modify-tags-folder").addEventListener("click", modifyTags_folder);
+	document.querySelector("#modifyTags_folder_untagged").addEventListener("click", modifyTags_folder_untagged);
 });
 
 const fs = require("fs");
@@ -62,6 +63,7 @@ async function save_Config(){
 	writeToConsole("save!");
 }
 
+// 按钮函数
 
 async function modifyTags() {
 	const labelsPath = document.getElementById("labels-path").value;
@@ -104,8 +106,29 @@ async function modifyTags_folder() {
 	for(let i = 0; i < allFolderIds.length; i++){
 		let item = await eagle.item.get({ folders:[allFolderIds[i]]
 		});
-		items = items.concat(item)
+		items = items.concat(item);
 	}
+	tagModifier(items,labelsPath,modelPath,outPath,generalThreshold,characterThreshold);
+}
+
+async function modifyTags_folder_untagged() {
+	const labelsPath = document.getElementById("labels-path").value;
+	const modelPath = document.getElementById("model-path").value;
+	const outPath = document.getElementById("out-path").value;
+	const generalThreshold = document.getElementById("general-threshold").value;
+	const characterThreshold = document.getElementById("character-threshold").value;
+
+	// 取得 Eagle 应用当前被选中的文件夹，获取其id并找到文件夹下的图片
+	let folder = (await eagle.folder.getSelected())[0];
+	let allFolderIds = await getAllFolderIds(folder);
+	console.log(allFolderIds);
+	items = []
+	for(let i = 0; i < allFolderIds.length; i++){
+		let item = await eagle.item.get({ folders:[allFolderIds[i]]
+		});
+		items = items.concat(item);
+	}
+	items = items.filter(item => item.tags && item.tags.length == 0);
 	tagModifier(items,labelsPath,modelPath,outPath,generalThreshold,characterThreshold);
 }
 
@@ -115,6 +138,7 @@ const { PythonShell } = require("python-shell");
 
 async function tagModifier(items,labelsPath,modelPath,outPath,generalThreshold,characterThreshold) {
 	console.log("tagModifier called");
+	writeToConsole('call tagModifier');
 	
 	const concurrencyLimit = 5; // 设置并发数量限制
 	const tasks = [];
@@ -140,7 +164,13 @@ async function tagModifier(items,labelsPath,modelPath,outPath,generalThreshold,c
 		// 创建异步任务
 		const task = PythonShell.run("givemessr.py", options).then(results => {
 			// 修改标签
-			item.tags = results;
+			results.forEach(result => {
+				// 检查 item.tags 是否已经包含该元素
+				if (!item.tags.includes(result)) {
+				  // 如果不包含，将元素添加到 item.tags 数组中
+				  item.tags.push(result);
+				}
+			});
 	
 			// 保存修改
 			item.save();
@@ -158,6 +188,7 @@ async function tagModifier(items,labelsPath,modelPath,outPath,generalThreshold,c
 		}
 	}
 	console.log("tagModifier finished");
+	writeToConsole('Complete!');
 }
   
 
