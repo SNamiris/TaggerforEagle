@@ -6,7 +6,7 @@
 2. git clone https://huggingface.co/SmilingWolf/wd-v1-4-convnextv2-tagger-v2/
 源代码要求wd-v1-4-convnextv2-tagger-v2里面的csv文件
 模型可以用其他的 https://huggingface.co/SmilingWolf 在这个大佬内随便找
-如果你用过webui的tagger，直接用原设也行，webui的默认文件位置在~\.cache里
+如果你用过webui的tagger，直接用原设也行，webui的默认文件位置在~\\.cache里
 3. 打开插件，填写模型和模型tag保存位置，输出tag集的文件名（不用带后缀，会自动保存适用于wildcards的txt文件和方便做成excel 的tsv文件），设置阈值
 4. 保存设置，选择运行模式
 
