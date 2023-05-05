@@ -26,3 +26,7 @@
 nodejs：https://nodejs.org/en/download/
 然后命令行运行
 npm install python-shell
+
+## 致谢：
+主要的tagger部分代码：Nubulae
+主要的js部分代码：GPT-4
