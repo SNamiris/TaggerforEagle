@@ -1,18 +1,42 @@
 ## 功能：
 可以识别选中图片，文件夹中图片，自动打标，输出标签到适用于wildcards的txt文件和方便做成excel 的tsv文件
+暂时只支持windows。mac没试过
 
 ## 使用
-1. 安装python3，运行 install.bat 等跑完，如果报错就自己在venv安装依赖
-2. 安装nodejs：https://nodejs.org/en/download/，命令行运行npm install python-shell
-3. 下载tagger模型
+0. **下载**：项目主页右上角code-Download zip。将下载文件放到你想放的插件位置，推荐放到Eagle\Plugin\，解压文件。
+
+1. **安装Python 3**：请访问[Python官网](https://www.python.org/downloads/)下载并安装Python 3。安装过程中，请确保勾选“Add Python to PATH”选项，以便将Python添加到系统路径中。
+
+2. **安装 Python 依赖库**
+    - 双击运行 `install.bat` 文件以自动安装项目所需的 Python 库。它将打开一个命令行窗口，并开始自动安装所需的 Python 库。安装过程中，您可能会看到一些进度信息和警告。通常，这些警告可以忽略。
+    - 如果在运行过程中出现错误，这可能是由于某些依赖库未能正确安装。在这种情况下，请尝试手动安装依赖库。
+        1. 创建一个 Python 虚拟环境（venv）：
+            ```
+            python -m venv venv
+            ```
+        2. 激活虚拟环境。在 Windows 上，运行：
+            ```
+            venv\Scripts\activate
+            ```
+        3. 激活虚拟环境后，使用 `pip` 手动安装项目所需的库。这些库应该在 `requirements.txt` 文件中列出。运行以下命令以安装库：
+            ```
+            pip install -r requirements.txt
+            ```
+    - 安装完成后，您可以继续进行下一步。
+
+3. **安装Node.js**：请访问[Node.js官网](https://nodejs.org/en/download/)下载并安装Node.js。安装完成后，打开命令行窗口，运行`npm install python-shell`以安装Python Shell。
+
+4. **下载tagger模型**：在命令行中运行以下命令以克隆tagger模型：
 ```
-git clone https://huggingface.co/SmilingWolf/wd-v1-4-convnextv2-tagger-v2/
+git clone https://huggingface.co/SmilingWolf/wd-v1-4-swinv2-tagger-v2/
+请确保模型文件夹中包含所需的csv文件（selected_tags.csv）和模型文件（model.onnx），将文件夹放在你想放的位置，记住其地址，填写到之后的插件设置中。您还可以从[SmilingWolf的Hugging Face主页](https://huggingface.co/SmilingWolf)中选择其他模型。
 ```
-    源代码要求模型文件夹里面的csv文件和model文件
-    模型也可以用其他的 https://huggingface.co/SmilingWolf 在这个大佬内随便找
-    如果你用过webui的tagger，直接用原设也行，webui的默认文件位置在~\\.cache里，你只需要更改user之后的用户名
-4. 打开插件，填写模型和模型tag保存位置，输出tag集的文件名（不用带后缀，会自动保存适用于wildcards的txt文件和方便做成excel 的tsv文件），设置阈值
-5. 保存设置，选择功能
+
+5. **若您使用过WebUI的tagger**：如果您已经使用过WebUI的tagger，可以直接使用默认设置。WebUI的默认文件位置在`~\.cache`文件夹中。您只需更改其中的用户名即可。
+
+6. **配置插件**：从eagle导入并打开插件，填写模型和模型标签保存位置。输入用于保存标签集的文件名（不需要添加文件扩展名，程序会自动保存为适用于wildcards的txt文件和方便导入Excel的tsv文件），并设置阈值。
+
+7. **选择功能**：保存设置后，选择要使用的功能。
 
 
 
