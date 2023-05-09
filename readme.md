@@ -50,8 +50,6 @@ git clone https://huggingface.co/SmilingWolf/wd-v1-4-swinv2-tagger-v2/
 
 4. 多次打标同一文件会在tag输出文件输出多次同一tag，但不会对图片文件增加同一tag。这会浪费计算资源，建议使用对未tag的文件打标的那个选项
 
-5. 目前日语中的・无法被正常输入到csv文件中（其他可能还有一些少见词），暂时不知道解决办法，改utf-8也没用
-
 ## 致谢：
 主要的tagger部分代码：Nubulae
 主要的js部分代码：GPT-4
