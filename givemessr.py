@@ -190,8 +190,8 @@ def get_image_files(path):
 def save_wildcards_file(out_path,out_labels,mode='a'):
     out_path_txt = out_path + '.txt'
     if not os.path.exists(out_path_txt):
-        open(out_path_txt, "x", newline='')
-    with open(out_path_txt, mode, newline='') as f:
+        open(out_path_txt, "x", newline='', errors='replace')
+    with open(out_path_txt, mode, newline='', errors='replace') as f:
         for value in out_labels.values():
             f.write(str(value) + "\n")
     #print('%s个文件的词已保存至%s'%(len(out_labels),out_path))
@@ -200,17 +200,17 @@ def save_tsv_file(out_path,out_labels,mode='a'):
     out_path_tsv = out_path + '.tsv'
     if not os.path.exists(out_path_tsv) or os.path.getsize(out_path_tsv) == 0:
         # Create a new file if it doesn't exist
-        with open(out_path_tsv, "x", newline='') as f:
+        with open(out_path_tsv, "x", newline='', errors='replace') as f:
             has_path = False
             has_value = False        
         # Check if the file already contains "path" and "value" columns
     else:
-        with open(out_path_tsv, "r") as f:
+        with open(out_path_tsv, "r", errors='replace') as f:
             reader = csv.reader(f, delimiter='\t')
             header = next(reader)
             has_path = "path" in header
             has_value = "value" in header
-    with open(out_path_tsv, mode, newline='') as f:
+    with open(out_path_tsv, mode, newline='', errors='replace') as f:
         writer = csv.DictWriter(f, fieldnames=["path", "value"], delimiter='\t')
         if not (has_path and has_value):
             writer.writeheader()

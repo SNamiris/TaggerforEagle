@@ -1,4 +1,5 @@
 venv/
 *.tsv
+*.xlsx
 tags-featured.txt
 tags.txt
