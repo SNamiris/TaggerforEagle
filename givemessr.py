@@ -103,7 +103,9 @@ def predict(
     character_res = [x for x in character_names if x[1] > character_threshold]
     character_res = dict(character_res)
 
-    b = dict(sorted(general_res.items(), key=lambda item: item[1], reverse=True))
+    combined_res = {**general_res, **character_res}
+
+    b = dict(sorted(combined_res.items(), key=lambda item: item[1], reverse=True))
     a = (
         ", ".join(list(b.keys()))
         .replace("_", " ")
@@ -228,12 +230,12 @@ def main(image_path,model_path,labels_path,general_threshold,character_threshold
     for image_path in image_paths:
         out=predict(readImage(image_path),
                     # model_name=model_name,
-                    general_threshold=0.35,
-                    character_threshold=0.85,
+                    general_threshold=general_threshold,
+                    character_threshold=character_threshold,
             tag_names=tag_names,
             rating_indexes=rating_indexes,
             general_indexes=general_indexes,
-            character_indexes=character_indexes,)
+            character_indexes=character_indexes)
     
         out_labels[image_path]=out
     save_wildcards_file(out_path,out_labels,mode=mode)
@@ -273,5 +275,3 @@ main(image_path=image_path,
      general_threshold=general_threshold,
      character_threshold=character_threshold
 )
-
- 
