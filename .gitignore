@@ -1,5 +1,5 @@
 venv/
-node_modules/
+
 *.tsv
 *.xlsx
 *.json
