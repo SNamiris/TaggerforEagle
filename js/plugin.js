@@ -307,14 +307,14 @@ async function parseData(text) {
 	// 处理Steps后的内容
 	data['Steps'] = 'Steps: ' + data['Steps'];
 	
-	let regex = /([^:]+:\s*"[^"]+"|[^,]+)/g;
+	let regex = /(?<=,|^)\s*([^:]+):\s*("[^"]*"|[^,]+)/g;
 	let pairs = data['Steps'].match(regex);
 	
 	pairs.forEach(pair => {
 		let [field, ...value] = pair.split(':');
 		data[field.trim()] = value.join(':').trim();
 	});
-
+	
     return data;
 }
 
