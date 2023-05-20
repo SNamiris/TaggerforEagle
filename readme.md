@@ -3,6 +3,9 @@
 5.20 可以导出已有标签至txt，可以导出AI生成时的自带信息，输出为json，并可以将其中的prompt部分转换成wildcards
 暂时只支持windows。mac没试过
 
+## demo
+![Example Image](./demo/1.png)
+
 ## 使用
 0. **下载**：项目主页右上角code-Download zip。将下载文件放到你想放的插件位置，推荐放到Eagle\Plugin\，解压文件。
 
