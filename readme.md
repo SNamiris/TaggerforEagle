@@ -24,7 +24,7 @@
             ```
     - 安装完成后，您可以继续进行下一步。
 
-3. **安装Node.js**：请访问[Node.js官网](https://nodejs.org/en/download/)下载并安装Node.js。安装完成后，打开命令行窗口，运行`npm install python-shell`以安装Python Shell。
+3. **安装Node.js**：请访问[Node.js官网](https://nodejs.org/en/download/)下载并安装Node.js。安装完成后，运行installnodejs.bat。
 
 4. **下载tagger模型**：在命令行中运行以下命令以克隆tagger模型：
 ```

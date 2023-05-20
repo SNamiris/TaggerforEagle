@@ -1,7 +1,10 @@
 {
   "labelsPath": "C:\\Users\\sgz\\.cache\\huggingface\\hub\\models--SmilingWolf--wd-v1-4-swinv2-tagger-v2\\snapshots\\8350dd529d920aab46156928654cba67c71dc348\\selected_tags.csv",
   "modelPath": "C:\\Users\\sgz\\.cache\\huggingface\\hub\\models--SmilingWolf--wd-v1-4-swinv2-tagger-v2\\snapshots\\8350dd529d920aab46156928654cba67c71dc348\\model.onnx",
-  "outPath": ".\\Plugin\\TaggerforEagle\\test",
+  "outPath": ".\\Plugin\\TaggerforEagle\\tags",
   "generalThreshold": "0.3",
-  "characterThreshold": "0.3"
+  "characterThreshold": "0.3",
+  "concurrencyLimit": "5",
+  "exportPath": "D:\\AI\\SD\\stable-diffusion-webui\\extensions\\sd-dynamic-prompts\\wildcards\\test",
+  "exportPathAI": ".\\Plugin\\TaggerforEagle\\test"
 }

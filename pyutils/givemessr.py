@@ -14,7 +14,7 @@ import PIL.Image
 
 import csv
 
-from pyutils import dbimutils
+import dbimutils
 
 
 

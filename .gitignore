@@ -1,5 +1,7 @@
 venv/
+node_modules/
 *.tsv
 *.xlsx
+*.json
 tags-featured.txt
 tags.txt

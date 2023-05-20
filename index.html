@@ -10,14 +10,15 @@
 <body>
 	<div id="message"></div>
 
+    <!--打标-->
     <label for="labels-path">Labels Path:</label>
-    <input type="text" id="labels-path" name="labels-path" size="60"><br>
+    <input type="text" id="labels-path" name="labels-path" size="70"><br>
 
     <label for="model-path">Model Path:</label>
-    <input type="text" id="model-path" name="model-path" size="60"><br>
+    <input type="text" id="model-path" name="model-path" size="70"><br>
 
     <label for="out-path">Out Path:</label>
-    <input type="text" id="out-path" name="out-path" size="50"><br>
+    <input type="text" id="out-path" name="out-path" size="70"><br>
 
     <label for="general-threshold">General Threshold:</label>
     <input type="text" id="general-threshold" name="general-threshold"><br>
@@ -25,12 +26,30 @@
     <label for="character-threshold">Character Threshold:</label>
     <input type="text" id="character-threshold" name="character-threshold"><br>
 
-    <button id="saveConfig">保存设置</button>
-    <button id="modify-tags">修改选中文件标签</button>
-    <button id="modify-tags-folder">修改当前文件夹所有文件标签</button>
-    <button id="modifyTags_folder_untagged">修改当前文件夹所有未打标的文件标签</button>
+    <label for="concurrencyLimit">并发数量:</label>
+    <input type="text" id="concurrencyLimit" name="concurrencyLimit"><br>
 
+    <button id="modifyTags">修改选中文件标签</button>
+    <button id="modifyTags_folder">修改当前文件夹所有文件标签</button>
+    <button id="modifyTags_folder_untagged">修改当前文件夹所有未打标的文件标签</button><br>
     <!--<button id="modify-tags-all">修改所有文件标签</button>-->
+
+
+    <!--导出标签-->
+    <label for="export-path">Export Path:</label>
+    <input type="text" id="export-path" name="export-path" size="70"><br>
+
+    <button id="exportTags">导出选中文件标签</button>
+    <button id="exportTags_folder">导出当前文件夹所有文件标签</button><br>
+
+    <!--导出ai生成信息-->
+    <label for="export-path-AI">Export Path:</label>
+    <input type="text" id="export-path-AI" name="export-path-AI" size="70"><br>
+    <button id="exportAIinfo">导出选中文件AI生成信息</button>
+    <button id="exportAIinfo_folder">导出当前文件夹所有文件AI生成信息</button>
+    <button id="convert2wildcards">转换输出的json为wildcards</button><br>
+
+    <button id="saveConfig">保存设置</button><br>
 
     <pre id="console-output"></pre>
 </body>
