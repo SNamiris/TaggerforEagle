@@ -6,5 +6,5 @@
   "characterThreshold": "0.3",
   "concurrencyLimit": "5",
   "exportPath": "D:\\AI\\SD\\stable-diffusion-webui\\extensions\\sd-dynamic-prompts\\wildcards\\test",
-  "exportPathAI": ".\\Plugin\\TaggerforEagle\\test"
+  "exportPathAI": ".\\Plugin\\TaggerforEagle\\tags-featured-aiinfo"
 }

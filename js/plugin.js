@@ -249,7 +249,13 @@ async function exportTags_folder() {
 async function readInfoFromImage(imagePath) {
     // Read the file directly to get a buffer
     const data = fs.readFileSync(imagePath);
-    const exif = exifReader.load(data);
+	let exif;
+    try {
+        exif = exifReader.load(data);
+    } catch (err) {
+        console.error('Error loading Exif data:', err);
+        return [null, {}];
+    }
     const parameters = exif['parameters'] ? exif['parameters']['description'] : '';
 
     let geninfo = parameters || null;

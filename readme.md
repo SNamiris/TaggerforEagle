@@ -1,6 +1,8 @@
 ## 功能：
 可以识别选中图片，文件夹中图片，自动打标，输出标签到适用于wildcards的txt文件和方便做成excel 的tsv文件
+
 5.20 可以导出已有标签至txt，可以导出AI生成时的自带信息，输出为json，并可以将其中的prompt部分转换成wildcards
+
 暂时只支持windows。mac没试过
 
 ## demo
